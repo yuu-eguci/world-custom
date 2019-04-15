@@ -18,9 +18,11 @@ for fpath in (fpath for fpath in os.listdir('.') if fpath.endswith('html')):
     with open(fpath, 'r', encoding='utf-8') as f:
         text = f.read()
 
-    for to,frms in replace_dic.items():
-        for frm in frms:
-            text = text.replace(f'blog-img/{frm}.jpg', f'sample/{to}.jpg')
+    # for to,frms in replace_dic.items():
+    #     for frm in frms:
+    #         text = text.replace(f'blog-img/{frm}.jpg', f'sample/{to}.jpg')
+
+    text = text.replace('    ', '  ')
 
     with open(fpath, 'w', encoding='utf-8') as f:
         f.write(text)
