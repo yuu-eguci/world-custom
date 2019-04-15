@@ -1269,3 +1269,50 @@ textarea:focus ~ .highlight {
         color: #959595; }
 
 /*# sourceMappingURL=style.css.map */
+
+/* Custom */
+.centering {
+  text-align: center;
+}
+
+.pt-15 {
+  padding-top: 15px; }
+
+.pt-30 {
+  padding-top: 30px; }
+
+.pt-50 {
+  padding-top: 50px; }
+
+.pt-70 {
+  padding-top: 70px; }
+
+.pt-100 {
+  padding-top: 100px; }
+
+.pb-15 {
+  padding-bottom: 15px; }
+
+.pb-30 {
+  padding-bottom: 30px; }
+
+.pb-50 {
+  padding-bottom: 50px; }
+
+.pl-15 {
+  padding-left: 15px; }
+
+.pl-30 {
+  padding-left: 30px; }
+
+.pr-15 {
+  padding-right: 15px; }
+
+.pr-30 {
+  padding-right: 30px; }
+
+.pb-70 {
+  padding-bottom: 70px; }
+
+.pb-100 {
+  padding-bottom: 100px; }
