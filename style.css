@@ -27,7 +27,10 @@
   padding: 0; }
 
 body {
-  font-family: "Work Sans", sans-serif; }
+  font-family: Arial,Helvetica,"游ゴシック",YuGothic,"Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  color: #8d8d8d;
+  font-size: 14px;
+  line-height: 1.4; }
 
 .ubuntu-fonts {
   font-family: "Ubuntu", sans-serif; }
@@ -38,14 +41,11 @@ h3,
 h4,
 h5,
 h6 {
-  color: #000000;
+  /* color: #000000; */
+  color: #333;
   font-weight: 500;
   line-height: 1.3; }
 
-p {
-  color: #8d8d8d;
-  font-size: 14px;
-  line-height: 1.4; }
 
 a {
   -webkit-transition-duration: 500ms;
@@ -137,11 +137,13 @@ a {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
-ul,
-ol {
+
+/* HACK: なぜいちいち > をつけないと not が動作しないのかが不明。 */
+div:not(.markdown-body .toc) > ul,
+div:not(.markdown-body) > ol {
   margin: 0; }
-  ul li,
-  ol li {
+  div:not(.markdown-body .toc) > ul > li,
+  div:not(.markdown-body) > ol > li {
     list-style: none; }
 
 img {
@@ -551,7 +553,8 @@ img {
       margin-bottom: 0;
       font-size: 12px; }
       .single-blog-post .post-content .post-meta p a {
-        font-size: 12px; }
+        /* font-size: 12px; */
+        font-size: 14px; }
   .single-blog-post.post-style-2 {
     margin-bottom: 5px; }
     .single-blog-post.post-style-2 .post-thumbnail {
@@ -566,14 +569,17 @@ img {
     .single-blog-post.post-style-2 .post-content {
       padding: 5px 30px 5px 5px; }
       .single-blog-post.post-style-2 .post-content .headline h5 {
-        font-size: 14px;
+        /* font-size: 14px; */
+        font-size: 15.5px;
         margin-bottom: 10px; }
         @media only screen and (min-width: 992px) and (max-width: 1199px) {
           .single-blog-post.post-style-2 .post-content .headline h5 {
-            font-size: 13px; } }
+            /* font-size: 13px; */
+            font-size: 15.5px } }
         @media only screen and (max-width: 767px) {
           .single-blog-post.post-style-2 .post-content .headline h5 {
-            font-size: 13px; } }
+            /* font-size: 13px; */
+            font-size: 15.5px } }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .single-blog-post.post-style-2 .post-content {
           padding: 5px; } }
@@ -875,6 +881,7 @@ img {
       .comment_area .comment-content .comment-meta p a {
         font-size: 14px; }
 .comment_area .single_comment_area {
+  list-style: none;
   margin-bottom: 30px; }
   .comment_area .single_comment_area:last-of-type {
     margin-bottom: 0; }
@@ -1277,8 +1284,7 @@ textarea:focus ~ .highlight {
 
 /* Custom */
 .centering {
-  text-align: center;
-}
+  text-align: center; }
 
 /* Custom scrollUp */
 #linkPrev, #linkNext {
@@ -1334,7 +1340,7 @@ textarea:focus ~ .highlight {
 .dropdown:hover .dropdown-menu.tablist {
   margin-top: 0px; }
 
-/* Post Design */
+/* Post Meta */
 .post-meta .single-title {
   padding: 0;
   font-size: 1.4em; }
@@ -1343,7 +1349,10 @@ textarea:focus ~ .highlight {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    margin: 0; }
+    .post-meta .post-tags li {
+      list-style: none; }
     .post-meta .post-tags a {
       display: block;
       padding: 0 15px;
@@ -1352,7 +1361,6 @@ textarea:focus ~ .highlight {
       border: 1px solid;
       border-color: #f1f1f1;
       margin: 5px; }
-
 
 .pt-15 {
   padding-top: 15px; }
