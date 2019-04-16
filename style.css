@@ -1319,6 +1319,12 @@ textarea:focus ~ .highlight {
     bottom: 140px;
     right: 30px; } }
 
+/* Post List */
+.post-list-row {
+  margin-bottom: 5px; }
+  .post-list-row:last-of-type {
+    margin-bottom: 0; }
+
 .pt-15 {
   padding-top: 15px; }
 
