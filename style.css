@@ -19,6 +19,7 @@
 @import url(css/magnific-popup.css);
 @import url(css/font-awesome.min.css);
 @import url(css/themify-icons.css);
+@import url(vendor/github-markdown.css);
 /* :: Base CSS */
 * {
   margin: 0;
@@ -1324,6 +1325,33 @@ textarea:focus ~ .highlight {
   margin-bottom: 5px; }
   .post-list-row:last-of-type {
     margin-bottom: 0; }
+
+/* Dropdown menu automatically open with mouse hover */
+.dropdown:hover > .dropdown-menu {
+  display: block;
+  top: 90%; }
+.dropdown:hover .dropdown-menu.tablist {
+  margin-top: 0px; }
+
+/* Post Design */
+.post-meta .single-title {
+  padding: 0;
+  font-size: 1.4em; }
+  .post-meta .post-tags {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    .post-meta .post-tags a {
+      display: block;
+      padding: 0 15px;
+      line-height: 28px;
+      height: 30px;
+      border: 1px solid;
+      border-color: #f1f1f1;
+      margin: 5px; }
+
 
 .pt-15 {
   padding-top: 15px; }
