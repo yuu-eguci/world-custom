@@ -202,6 +202,9 @@ img {
 .font-light {
   font-weight: 300; }
 
+.height-250 {
+  height: 250px !important; }
+
 .height-400 {
   height: 400px !important; }
 
@@ -1274,6 +1277,47 @@ textarea:focus ~ .highlight {
 .centering {
   text-align: center;
 }
+
+/* Custom scrollUp */
+#linkPrev, #linkNext {
+  background-color: #232323;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  font-size: 30px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 46px;
+  position: fixed;
+  z-index: 2147483647;
+  display: block;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms; }
+#linkPrev {
+  bottom: 115px;
+  right: 60px; }
+  #linkPrev:hover {
+    background-color: #0036FF; }
+#linkNext {
+  bottom: 170px;
+  right: 60px; }
+  #linkNext:hover {
+    background-color: #6C00FF; }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #linkPrev {
+    bottom: 85px;
+    right: 30px; }
+  #linkNext {
+    bottom: 140px;
+    right: 30px; } }
+@media only screen and (max-width: 767px) {
+  #linkPrev {
+    bottom: 85px;
+    right: 30px; }
+  #linkNext {
+    bottom: 140px;
+    right: 30px; } }
 
 .pt-15 {
   padding-top: 15px; }
