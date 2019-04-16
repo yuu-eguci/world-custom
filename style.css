@@ -20,6 +20,7 @@
 @import url(css/font-awesome.min.css);
 @import url(css/themify-icons.css);
 @import url(vendor/github-markdown.css);
+@import url(vendor/highlight/default.css);
 /* :: Base CSS */
 * {
   margin: 0;

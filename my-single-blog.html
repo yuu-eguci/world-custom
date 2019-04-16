@@ -97,12 +97,17 @@
           <div class="single-blog-content mb-100">
             <!-- Post Meta -->
             <div class="post-meta">
+              <h1 class="single-title">Example Post テストポスト</h1>
+              <!-- Post Tags -->
+              <ul class="post-tags">
+                <li><a href="#">Manual</a></li>
+                <li><a href="#">Liberty</a></li>
+              </ul>
               <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
             </div>
             <!-- Post Content -->
-            <div class="post-content">
+            <div class="post-content markdown-body">
 
-              <h1>Example Post テストポスト</h1>
               <div class="toc">
                 <ul>
                   <li><a href="#_1">リスト系</a></li>
@@ -133,8 +138,7 @@
               <p><img alt="" src="img/sample/360x195.jpg" /></p>
               <h2 id="_3">コード</h2>
               <pre><code class="python">def foo():
-                  print('FOOFOO')
-              </code></pre>
+    print('FOOFOO')</code></pre>
 
               <h2 id="_4">色を変える</h2>
               <p><span style="color:red;">みー</span>、つぃー、にゃー</p>
@@ -171,30 +175,16 @@
               </style>
 
               <p id="red">RED.</p>
-              <pre><code class="plaintext">RED.
-              {: #red }
-              </code></pre>
+              <pre><code class="plaintext hljs">RED.
+{: #red }</code></pre>
 
               <p><strong class="green">GREEN.</strong></p>
-              <pre><code class="plaintext">**GREEN.**{: .green}
-              </code></pre>
-
-              <!-- Post Tags -->
-              <ul class="post-tags">
-                <li><a href="#">Manual</a></li>
-                <li><a href="#">Liberty</a></li>
-                <li><a href="#">Recommendations</a></li>
-                <li><a href="#">Interpritation</a></li>
-              </ul>
-              <!-- Post Meta -->
-              <div class="post-meta second-part">
-                <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
-              </div>
+              <pre><code class="plaintext hljs">**GREEN.**{: .green}</code></pre>
             </div>
           </div>
         </div>
 
-        <!-- ========== Sidebar Area ========== -->
+        <!-- ========== Empty Sidebar Area ========== -->
         <div class="col-12 col-md-2 col-lg-2">
         </div>
       </div>
@@ -474,6 +464,10 @@
   <script src="js/plugins.js"></script>
   <!-- Active js -->
   <script src="js/active.js"></script>
+  <!-- highlight.js -->
+  <!-- https://laboradian.com/how-to-use-highlightjs/ -->
+  <script src="vendor/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 
   <a id="linkNext" href="#">
     <i class="fa fa-step-forward"></i>
