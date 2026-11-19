@@ -1,0 +1,45 @@
+services:
+  web:
+    build:
+      context: .
+      target: runtime
+    ports:
+      - "127.0.0.1:${WEB_PORT:-8080}:8080"
+    read_only: true
+    tmpfs:
+      - /tmp
+    networks:
+      - default
+      - e2e
+
+  # lint ・型チェック・テスト・ビルドを実行します。 src/ から生成した js/ をホストへ書き戻すため、リポジトリをマウントします。
+  dev:
+    profiles: ["dev"]
+    build:
+      context: .
+      target: deps
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    network_mode: none
+
+  # 外部へ通信できないネットワークから web を e2e テストします。
+  e2e:
+    profiles: ["e2e"]
+    build:
+      context: .
+      target: e2e
+    environment:
+      BASE_URL: http://web:8080
+    depends_on:
+      web:
+        condition: service_healthy
+    init: true
+    shm_size: 1gb
+    networks:
+      - e2e
+
+networks:
+  e2e:
+    internal: true
