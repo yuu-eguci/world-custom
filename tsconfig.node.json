@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "lib": ["es2024", "dom", "dom.iterable"],
+    "types": ["jquery", "google.maps", "node"]
+  },
+  "include": ["src", "tests", "e2e", "*.config.ts"]
+}

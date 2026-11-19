@@ -1,42 +1,49 @@
-var map;
-var latlng = new google.maps.LatLng(56.9496, 24.1052);
-var stylez = [{
-    featureType: "all",
-    elementType: "all",
-    stylers: [{
-        saturation: -25
-            }]
-        }];
-var mapOptions = {
-    zoom: 15,
-    center: latlng,
-    scrollwheel: false,
-    scaleControl: false,
-    disableDefaultUI: true,
-    mapTypeControlOptions: {
-        mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'gMap']
+/* src/ から npm run build で生成したファイルです。直接編集しません。 */
+"use strict";
+(() => {
+  // src/lib/map.ts
+  var CENTER = { lat: 56.9496, lng: 24.1052 };
+  var ADDRESS = "Riga";
+  var GRAYSCALE_MAP_TYPE_ID = "gMap";
+  function initMap(maps, doc, alert) {
+    const element = doc.getElementById("googleMap");
+    if (element === null) {
+      throw new Error("#googleMap が見つかりません。");
     }
-};
-map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
-var geocoder_map = new google.maps.Geocoder();
-var address = 'Riga';
-geocoder_map.geocode({
-    'address': address
-}, function (results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            icon: '',
-            position: map.getCenter(),
-            animation: google.maps.Animation.BOUNCE,
+    const map = new maps.Map(element, {
+      zoom: 15,
+      center: new maps.LatLng(CENTER.lat, CENTER.lng),
+      scrollwheel: false,
+      scaleControl: false,
+      disableDefaultUI: true,
+      mapTypeControlOptions: {
+        mapTypeIds: [maps.MapTypeId.ROADMAP, GRAYSCALE_MAP_TYPE_ID]
+      }
+    });
+    void new maps.Geocoder().geocode({ address: ADDRESS }, (results, status) => {
+      const location = results?.[0]?.geometry.location;
+      if (status === "OK" && location !== void 0) {
+        map.setCenter(location);
+        new maps.Marker({
+          map,
+          icon: "",
+          position: location,
+          animation: maps.Animation.BOUNCE
         });
-    } else {
-        alert("Geocode was not successful for the following reason: " + status);
-    }
-});
-var mapType = new google.maps.StyledMapType(stylez, {
-    name: "Grayscale"
-});
-map.mapTypes.set('gMap', mapType);
-map.setMapTypeId('gMap');
+      } else {
+        alert(`Geocode was not successful for the following reason: ${status}`);
+      }
+    });
+    const grayscale = new maps.StyledMapType([{ featureType: "all", elementType: "all", stylers: [{ saturation: -25 }] }], {
+      name: "Grayscale"
+    });
+    map.mapTypes.set(GRAYSCALE_MAP_TYPE_ID, grayscale);
+    map.setMapTypeId(GRAYSCALE_MAP_TYPE_ID);
+    return map;
+  }
+
+  // src/map-active.ts
+  initMap(google.maps, document, (message) => {
+    window.alert(message);
+  });
+})();
