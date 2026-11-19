@@ -75,7 +75,7 @@ test.describe('静的サイト', () => {
   });
 
   test.afterEach(() => {
-    // 遮断したリクエストは記録だけ行い、サイト外へは送りません。
+    // ページで JavaScript のエラーが起きていないことを確認します。
     expect(watch.errors).toEqual([]);
   });
 
