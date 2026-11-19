@@ -1,0 +1,35 @@
+{
+  "name": "world-custom",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Colorlib の World テンプレートをカスタマイズした静的サイトです。",
+  "type": "module",
+  "packageManager": "npm@11.20.0",
+  "engines": {
+    "node": "^26.13.1"
+  },
+  "scripts": {
+    "build": "esbuild src/active.ts src/map-active.ts --bundle --format=iife --target=es2020 --charset=utf8 --outdir=js --log-level=warning \"--banner:js=/* src/ から npm run build で生成したファイルです。直接編集しません。 */\"",
+    "lint": "eslint .",
+    "typecheck": "tsc --project tsconfig.json && tsc --project tsconfig.node.json",
+    "test": "vitest run",
+    "check": "npm run lint && npm run typecheck && npm run test",
+    "e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.65.1",
+    "@types/google.maps": "3.66.10",
+    "@types/jquery": "3.5.34",
+    "@types/jsdom": "30.0.0",
+    "@types/node": "26.6.6",
+    "esbuild": "0.28.2",
+    "eslint": "10.15.0",
+    "globals": "17.14.0",
+    "jiti": "2.7.0",
+    "jsdom": "31.0.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.73.0",
+    "vitest": "5.1.1"
+  }
+}
